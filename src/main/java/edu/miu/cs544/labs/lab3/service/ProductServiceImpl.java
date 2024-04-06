@@ -1,5 +1,6 @@
 package edu.miu.cs544.labs.lab3.service;
 
+import edu.miu.cs544.labs.lab3.aspect.ExecutionTimeAspect;
 import edu.miu.cs544.labs.lab3.entity.Product;
 import edu.miu.cs544.labs.lab3.repository.ProductRepo;
 import lombok.RequiredArgsConstructor;
@@ -16,16 +17,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @EntityGraph(value = "Product.reviews")
+
     public List<Product> findAll() {
         return repo.findAll();
     }
 
     @Override
+
     public Optional<Product> findById(long id) {
         return repo.findById(id);
     }
 
     @Override
+
     public void save(Product product) {
         repo.save(product);
     }
